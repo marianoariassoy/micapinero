@@ -1,7 +1,7 @@
 const TextHTML = ({ text }) => {
   return (
     <div
-      className='fade-in'
+      className='fade-in lg:text-xl text-wrap'
       dangerouslySetInnerHTML={{ __html: text }}
     />
   )

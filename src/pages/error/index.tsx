@@ -12,7 +12,7 @@ const Index = () => {
 
   return (
     <Layout>
-      <section className='text-2xl text-center flex justify-center items-center font-bold h-screen'>
+      <section className='text-2xl text-center flex justify-center items-center h-screen'>
         {lan === 'en' ? 'Page not found 🥲' : 'Página no encontrada 🥲'}
       </section>
     </Layout>

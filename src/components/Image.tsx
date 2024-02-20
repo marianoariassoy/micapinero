@@ -18,7 +18,7 @@ const ImageComponent = ({ src, alt }: Props) => {
   }, [src])
 
   return isLoading ? (
-    <div className='h-full w-full flex justify-center items-center'>
+    <div className='w-full h-full flex items-center justify-center'>
       <SyncLoader color='#0047ab' />
     </div>
   ) : (

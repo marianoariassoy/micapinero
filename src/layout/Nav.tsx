@@ -7,15 +7,13 @@ const Nav = () => {
   const [location] = useLocation()
 
   return (
-    <nav className='fixed p-6 lg:py-10 lg:px-16 right-0 z-50 transition-colors flex flex-col text-center'>
+    <nav className='fixed p-6 lg:py-10 lg:px-16 right-0 z-50 transition-colors flex flex-col text-center text-xl'>
       {menu[lan].map((item, index) => (
         <Link
           key={index}
           href={item.url}
         >
-          <a className={`decoration-2 ${location === item.url ? 'line-through' : 'hover:line-through'}`}>
-            {item.title}
-          </a>
+          <a className={`${location === item.url ? 'underline' : 'hover:underline'}`}>{item.title}</a>
         </Link>
       ))}
     </nav>

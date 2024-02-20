@@ -1,4 +1,5 @@
 import { Route, Switch } from 'wouter'
+import Layout from '../src/layout/Layout'
 import Home from './pages/home'
 import Works from './pages/works'
 import WorksDetail from './pages/works/WorksDetail'
@@ -12,45 +13,47 @@ import Error from './pages/error'
 
 function App() {
   return (
-    <Switch>
-      <Route
-        path='/'
-        component={Home}
-      />
-      <Route
-        path='/works'
-        component={Works}
-      />
-      <Route
-        path='/works/:id'
-        component={WorksDetail}
-      />
-      <Route
-        path='/texts'
-        component={Texts}
-      />
-      <Route
-        path='/texts/:id'
-        component={TextsDetails}
-      />
-      <Route
-        path='/about'
-        component={About}
-      />
-      <Route
-        path='/press'
-        component={Press}
-      />
-      <Route
-        path='/news'
-        component={News}
-      />
-      <Route
-        path='/contact'
-        component={Contact}
-      />
-      <Route component={Error} />
-    </Switch>
+    <Layout>
+      <Switch>
+        <Route
+          path='/'
+          component={Home}
+        />
+        <Route
+          path='/works'
+          component={Works}
+        />
+        <Route
+          path='/works/:id'
+          component={WorksDetail}
+        />
+        <Route
+          path='/texts'
+          component={Texts}
+        />
+        <Route
+          path='/texts/:id'
+          component={TextsDetails}
+        />
+        <Route
+          path='/about'
+          component={About}
+        />
+        <Route
+          path='/press'
+          component={Press}
+        />
+        <Route
+          path='/news'
+          component={News}
+        />
+        <Route
+          path='/contact'
+          component={Contact}
+        />
+        <Route component={Error} />
+      </Switch>
+    </Layout>
   )
 }
 

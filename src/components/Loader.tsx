@@ -1,10 +1,11 @@
-import BeatLoader from "react-spinners/BeatLoader";
-const Loader = () => {
-  return (
-    <div className="h-full w-full flex items-center justify-center">
-      <BeatLoader />
-    </div>
-  );
-};
+import SyncLoader from 'react-spinners/SyncLoader'
 
-export default Loader;
+const Loader = ({ color }: { color: string }) => {
+  return (
+    <div className='h-screen w-screen flex items-center justify-center'>
+      <SyncLoader color={color} />
+    </div>
+  )
+}
+
+export default Loader

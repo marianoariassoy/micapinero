@@ -1,74 +1,55 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'wouter'
 import { changeColor } from '../../utils/utils'
-import Layout from '../../layout/Layout'
 import { menu } from '../../components/data'
 import { useDataContext } from '../../context/useDataContext'
 import Title from '../../components/Title'
 import Image from '../../components/Image'
+import useFetch from '../../hooks/useFetch'
+import Loader from '../../components/Loader'
 
 const Index = () => {
   const { lan } = useDataContext()
   const [image, setImage] = useState(null)
+  const { data, loading } = useFetch(`/trabajos/${lan}`)
 
   useEffect(() => {
     changeColor('primary')
-  }, [])
+    const title = document.querySelector('title')
+    title.innerHTML = 'Mica Piñero ' + menu[lan][0].title
+  }, [lan])
 
-  const data = [
-    {
-      id: 1,
-      title: 'Primera Persona, 2022',
-      image: 'https://images.pexels.com/photos/3778180/pexels-photo-3778180.jpeg?auto=compress&cs=tinysrgb&w=600'
-    },
-    {
-      id: 2,
-      title: 'Torre Ventanal, 2021',
-      image: 'https://images.pexels.com/photos/3777933/pexels-photo-3777933.jpeg?auto=compress&cs=tinysrgb&w=600'
-    },
-    {
-      id: 3,
-      title: 'Llevame a conocer el oceano, 2019',
-      image: 'https://images.pexels.com/photos/3778205/pexels-photo-3778205.jpeg?auto=compress&cs=tinysrgb&w=600'
-    },
-    {
-      id: 4,
-      title: 'Pasé todos estos años planeando un refugio, 2019',
-      image: 'https://images.pexels.com/photos/3778897/pexels-photo-3778897.jpeg?auto=compress&cs=tinysrgb&w=600'
-    }
-  ]
+  if (loading) return <Loader color='#FFFFFF' />
 
   return (
-    <Layout>
-      <section className='fade-in px-6 lg:px-12'>
-        <Title title={menu[lan][0].title} />
+    <section className='fade-in px-6 lg:px-12'>
+      <Title title={menu[lan][0].title} />
 
-        <div className='flex flex-col gap-y-2 text-center lg:text-xl mt-16'>
-          {data.map(item => (
-            <Link
-              key={item.id}
-              href={`/works/${item.id}`}
+      <div className='flex flex-col gap-y-2 text-center text-xl lg:text-2xl mt-20'>
+        {data.map(item => (
+          <Link
+            key={item.id}
+            href={`/works/${item.id}`}
+          >
+            <a
+              className='hover:underline'
+              onMouseOver={() => setImage(item.image)}
+              onMouseOut={() => setImage(null)}
             >
-              <a
-                className='hover:line-through decoration-2'
-                onMouseOver={() => setImage(item.image)}
-                onMouseOut={() => setImage(null)}
-              >
-                {item.title}
-              </a>
-            </Link>
-          ))}
+              {item.title}
+            </a>
+          </Link>
+        ))}
+      </div>
+      {image && (
+        <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10'>
+          <Image
+            src={image}
+            alt='image'
+          />
         </div>
-        {image && (
-          <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10'>
-            <Image
-              src={image}
-              alt='image'
-            />
-          </div>
-        )}
-      </section>
-    </Layout>
+      )}
+    </section>
   )
 }
 
