@@ -5,7 +5,7 @@ const Footer = () => {
   const { lan, toggleLanguage } = useDataContext()
 
   return (
-    <footer className='fixed  bottom-6 right-6 lg:right-16 z-50 text-xl'>
+    <footer className='fixed  bottom-6 right-6 lg:right-16 z-50'>
       <nav className='flex flex-col text-center'>
         {languages.map((item, index) => (
           <button

@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <header className='fixed p-6 lg:py-10 lg:px-16 z-50 transition-colors'>
       <Link to='/'>
-        <a className='hover:text-black'>
+        <a className='logo transition-colors'>
           <Logo />
         </a>
       </Link>

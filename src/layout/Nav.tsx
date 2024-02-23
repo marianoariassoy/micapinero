@@ -7,7 +7,7 @@ const Nav = () => {
   const [location] = useLocation()
 
   return (
-    <nav className='fixed p-6 lg:py-10 lg:px-16 right-0 z-50 transition-colors flex flex-col text-center text-xl'>
+    <nav className='fixed p-6 lg:py-10 lg:px-16 right-0 z-50 transition-colors flex flex-col text-center'>
       {menu[lan].map((item, index) => (
         <Link
           key={index}

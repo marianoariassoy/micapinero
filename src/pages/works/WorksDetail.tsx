@@ -32,7 +32,7 @@ const Index = () => {
   }
 
   return (
-    <section className='fade-in px-6 lg:px-12 max-w-4xl m-auto pb-12'>
+    <section className='fade-in px-6 lg:px-12 pb-12'>
       <div>
         <Link to='/works'>
           <a className='fixed top-52 right-6 lg:right-16 lg:mt-3 hover:text-black block z-50'>
@@ -44,7 +44,7 @@ const Index = () => {
         <Title title={menu[lan][0].title} />
 
         <div className='mt-20'>
-          <div className='text-center mb-6 px-12 lg:px-0'>
+          <div className='text-center mb-6 px-12 lg:px-0 max-w-4xl m-auto'>
             <h1 className='text-xl lg:text-3xl'>{data[0].title}</h1>
             <div className='flex flex-col lg:text-xl'>
               <span>{data[0].text}</span>

@@ -21,6 +21,13 @@ const Index = () => {
 
   if (loading) return <Loader color='#FFFFFF' />
 
+  const showImage = image => {
+    setImage(image)
+    const imagePreview = document.querySelector('.image-preview') as HTMLElement
+    imagePreview.style.top = Math.floor(Math.random() * 60) + '%'
+    imagePreview.style.left = Math.floor(Math.random() * 60) + '%'
+  }
+
   return (
     <section className='fade-in px-6 lg:px-12'>
       <Title title={menu[lan][0].title} />
@@ -33,7 +40,7 @@ const Index = () => {
           >
             <a
               className='hover:underline'
-              onMouseOver={() => setImage(item.image)}
+              onMouseOver={() => showImage(item.image)}
               onMouseOut={() => setImage(null)}
             >
               {item.title}
@@ -41,14 +48,14 @@ const Index = () => {
           </Link>
         ))}
       </div>
-      {image && (
-        <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10'>
+      <div className='absolute h-[50vh] -z-10 image-preview'>
+        {image && (
           <Image
             src={image}
             alt='image'
           />
-        </div>
-      )}
+        )}
+      </div>
     </section>
   )
 }

@@ -8,6 +8,10 @@
 body {
   color: var(--color-primary);
   accent-color: var(--color-primary);
+  font-size: 18px;
+}
+.logo:hover {
+  color: #66a4fb;
 }
 .text-primary {
   color: var(--color-primary);
